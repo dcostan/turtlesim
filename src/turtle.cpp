@@ -79,7 +79,7 @@ Turtle::Turtle(
       &Turtle::velocityCallback, this,
       std::placeholders::_1));
   pose_pub_ = nh_->create_publisher<turtlesim_msgs::msg::Pose>(real_name + "/pose", qos);
-  timer_ = nh_->create_wall_timer(500ms, std::bind(&Turtle::timer_callback, this));
+  timer_ = nh_->create_wall_timer(2000ms, std::bind(&Turtle::timer_callback, this));
   color_pub_ = nh_->create_publisher<turtlesim_msgs::msg::Color>(real_name + "/color_sensor", qos);
   set_pen_srv_ =
     nh_->create_service<turtlesim_msgs::srv::SetPen>(
